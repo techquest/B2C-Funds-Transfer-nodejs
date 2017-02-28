@@ -3,7 +3,7 @@
  * @options.clientSecret
  * @options.env
  */
-var Interswitch = require('../../../interswitch_javascript/lib/interswitch.js');
+var Interswitch = require('interswitch');
 var Constants = require('./constants.js');
 var Utility = require('../utility/utility.js');
 var exp = function(options){

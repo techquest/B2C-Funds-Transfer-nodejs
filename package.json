@@ -1,18 +1,18 @@
 {
-  "name": "interswitch",
-  "version": "2.0.2",
+  "name": "interswitch-funds-transfer",
+  "version": "0.0.1",
   "description": "Interswitch Library",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "maintainers": [
       {
-      "name": "Lekan Omotayo",
-      "email": "developer@interswitchgroup.com"
+        "name": "Lekan Omotayo",
+        "email": "developer@interswitchgroup.com"
       },
       {
-         "name": "Ugochukwu Okeke",
-      "email": "developer@interswitchgroup.com"
+        "name": "Ugochukwu Okeke",
+        "email": "developer@interswitchgroup.com"
       }
   ],
   "files": [
@@ -31,7 +31,8 @@
     "jsonwebtoken": "^7.1.9",
     "jssha": "^2.2.0",
     "node-forge": "^0.6.45",
-    "request": "^2.78.0"
+    "request": "^2.78.0",
+    "interswitch":"2.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",

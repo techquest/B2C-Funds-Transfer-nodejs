@@ -4,7 +4,7 @@ var app = require('./src/index.js');
 var initiatingEntityCode = "PBL";
 var clientId = "IKIA2EFBE1EF63D1BBE2AF6E59100B98E1D3043F477A";
 var clientSecret = "uAk0Amg6NQwQPcnb9BTJzxvMS6Vz22octQglQ1rfrMA=";
-var Interswitch = require('../interswitch_javascript/lib/interswitch.js');
+var Interswitch = require('interswitch');
 var TransferRequestBuilder = app.TransferRequestBuilder;
 var FundTransfer = app.FundTransfer;
 
@@ -81,4 +81,27 @@ transfer.fetchBanks(function(err, response){
 
     }
 });//end of fetchBanks
+
+
 ```
+
+## Installation
+
+```bash
+$ npm install interswitch-funds-transfer
+```
+
+## Features
+
+  * Get All Supported Banks
+  * Account Validation
+  * Funds Transfer
+
+## Running sample app
+
+```
+cd B2C-Funds-Transfer-nodejs
+node AppDriver.js
+
+```
+
