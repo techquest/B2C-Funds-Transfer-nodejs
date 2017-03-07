@@ -1,4 +1,9 @@
+
+var Constant = require('./transfer/fundtransfer.js');
+var FundTransfer = Constant.FundTransfer;
+var TransferRequestBuilder = require("./transfer/builder");
 module.exports = {
-    FundTransfer: require('./transfer/fundtransfer.js'),
-    TransferRequestBuilder: require("./transfer/builder")
+    Constant: Constant,
+    TransferRequestBuilder: TransferRequestBuilder,
+    FundTransfer: FundTransfer
 };

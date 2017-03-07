@@ -6,7 +6,7 @@
 var Interswitch = require('interswitch');
 var Constants = require('./constants.js');
 var Utility = require('../utility/utility.js');
-var exp = function(options){
+var FundTransfer = function(options){
 
     options = options || {};
 
@@ -16,29 +16,19 @@ var exp = function(options){
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.env = env;
+    if(!this.env) {
+        this.env = "SANDBOX";
+    }
     this.interswitch = new Interswitch(clientId,clientSecret,env);
     
 
 };
-var FundTransfer = {
-    exportedFunction: exp,
-    LOCATION: "7"
-};
 
-
-FundTransfer.ATM = "1";
-FundTransfer.MOBILE = "4";
-FundTransfer.KIOSK = "5";
-FundTransfer.PCPOS = "6";
-FundTransfer.POS = "2";
-FundTransfer.LOCATION = "7";
-FundTransfer.DIRECT_DEBITM = "8";
-FundTransfer.WEB = "3";
 
 /**
  * 
  */
-FundTransfer.exportedFunction.prototype.fetchBanks = function(callback){
+FundTransfer.prototype.fetchBanks = function(callback){
 
     
     this.interswitch.send({
@@ -46,17 +36,20 @@ FundTransfer.exportedFunction.prototype.fetchBanks = function(callback){
         method:Constants.GET
     }, function(err, response, body){
         //
+        
         if(err) {
             console.log(err);
             callback(err);
         }
         else {
+            
             callback(null, response);
+            
         }
     });
 };
 
-FundTransfer.exportedFunction.prototype.validateAccount = function(transfer, callback){
+FundTransfer.prototype.validateAccount = function(transfer, callback){
     var bankCode = transfer.bankCode;
     var accountNumber = transfer.accountNumber;
     var url = Constants.ACCOUNT_VALIDATION_URL_PREFIX + bankCode + "/"+ Constants.ACCOUNT_VALIDATION_URL_SUFFIX + accountNumber+"/names";
@@ -71,7 +64,7 @@ FundTransfer.exportedFunction.prototype.validateAccount = function(transfer, cal
     
 };
 
-FundTransfer.exportedFunction.prototype.send = function(transfer, callback){
+FundTransfer.prototype.send = function(transfer, callback){
     var mac = Utility.generateMAC(transfer);
     transfer.mac = mac;
     var response = this.interswitch.send({
@@ -89,4 +82,15 @@ FundTransfer.exportedFunction.prototype.send = function(transfer, callback){
 
 };
 
-module.exports = FundTransfer;
+module.exports = {
+    FundTransfer: FundTransfer,
+    ATM: 1,
+    POS: 2,
+    WEB: 3,
+    MOBILE: 4,
+    KIOSK: 5,
+    PCPOS: 6,
+    LOCATION: 7,
+    DIRECT_DEBITM: 8
+
+};
