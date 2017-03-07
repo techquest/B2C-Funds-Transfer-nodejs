@@ -1,5 +1,3 @@
-# B2C-Funds-Transfer-nodejs
-```
 var app = require('./src/index.js');
 var initiatingEntityCode = "PBL";
 
@@ -94,25 +92,7 @@ transfer.fetchBanks(function(err, response){
 });//end of fetchBanks
 
 
-```
 
-## Installation
 
-```bash
-$ npm install interswitch-funds-transfer
-```
-
-## Features
-
-  * Get All Supported Banks
-  * Account Validation
-  * Funds Transfer
-
-## Running sample app
-
-```
-cd B2C-Funds-Transfer-nodejs
-node AppDriver.js
-
-```
+                    
 
